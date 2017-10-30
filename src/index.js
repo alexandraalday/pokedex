@@ -36,12 +36,16 @@ class PokemonList extends Component{
     };
   }
   componentWillMount(){
-    this.setState({
+  	var base = this
+    base.setState({
       loading : true
     });
-    fetch('http://pokeapi.co/api/v2/pokemon?limit=151').then(res=>res.json())
+    var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+    	targetUrl = 'http://pokeapi.co/api/v2/pokemon?limit=151'
+	fetch(proxyUrl + targetUrl)
+    .then(res=>res.json())
     .then(response=>{
-      this.setState({
+      base.setState({
         species : response.results,
         loading : true,
         fetched : true
