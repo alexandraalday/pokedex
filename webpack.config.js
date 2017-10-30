@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const assetsPath = path.join(__dirname, 'src');
 
 module.exports = {
-    entry :  {. // This is where Webpack looks for as a starting point for the bundle.
+    entry :  { // This is where Webpack looks for as a starting point for the bundle.
         bundle :  ['webpack-dev-server/client?http://0.0.0.0:8080', 
             'webpack/hot/only-dev-server',
            path.resolve(assetsPath,'index.js')],
@@ -22,13 +22,13 @@ module.exports = {
             {
                 //tell webpack to use jsx-loader for all *.jsx files
                 test: /.jsx?$/,
-                loaders: ['react-hot-loader/webpack','babel'],
+                loaders: ['react-hot-loader/webpack','babel-loader'],
                 include: [path.resolve(assetsPath)]
            }
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     },
     devtool : '#source-map',
 
